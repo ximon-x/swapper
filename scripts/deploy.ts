@@ -2,27 +2,46 @@ import { ethers, run } from "hardhat";
 import { setTimeout } from "timers/promises";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const initialSupply = ethers.utils.parseEther("1000000000");
 
-  const lockedAmount = ethers.utils.parseEther("0.001");
+  const swapperTokenFactory = await ethers.getContractFactory("SwapperToken");
+  const swapperTokenContract = await swapperTokenFactory.deploy(initialSupply);
+  await swapperTokenContract.deployed();
 
-  const lockFactory = await ethers.getContractFactory("Lock");
-  const lockContract = await lockFactory.deploy([unlockTime], {
-    value: lockedAmount,
-  });
-  await lockContract.deployed();
+  console.log(`Swapper Token deployed to ${swapperTokenContract.address}\n`);
 
-  console.log(`Lock Contract deployed to ${lockContract.address}\n`);
+  const catTokenFactory = await ethers.getContractFactory("CatToken");
+  const catTokenContract = await catTokenFactory.deploy();
+  await catTokenContract.deployed();
 
-  console.log(`Waiting for a minute before verifying Lock contract`);
+  console.log(`Cat NFT deployed to ${catTokenContract.address}\n`);
+
+  const dogTokenFactory = await ethers.getContractFactory("DogToken");
+  const dogTokenContract = await dogTokenFactory.deploy();
+  await dogTokenContract.deployed();
+
+  console.log(`Dog NFT deployed to ${dogTokenContract.address}\n`);
+
+  console.log(`Waiting for a minute before verifying contracts`);
   await setTimeout(60000);
 
+  console.log(`Verifying SwapperToken contract`);
   await run("verify:verify", {
-    address: lockContract.address,
-    constructorArguments: [unlockTime],
+    address: swapperTokenContract.address,
+    constructorArguments: [initialSupply],
   });
-  console.log(`Verified AlwaysAlive contract on PolygonScan`);
+
+  console.log(`Verifying CatToken contract`);
+  await run("verify:verify", {
+    address: catTokenContract.address,
+  });
+
+  console.log(`Verifying DogToken contract`);
+  await run("verify:verify", {
+    address: dogTokenContract.address,
+  });
+
+  console.log("Finished verifying contracts!");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -1,4 +1,4 @@
-import { ChainInfo } from "./types";
+import { ChainInfo, Contracts } from "./types";
 
 export const CHAINS: ChainInfo = {
   mainnet: {
@@ -31,3 +31,11 @@ export const CHAINS: ChainInfo = {
       chainId: 97,
     },
   };
+
+export const CONTRACTS: Contracts = {
+  sepolia: {
+    SwapperToken: "0xd4a1477715D621604D4564448e5BD048F68Ff531",
+    CatToken: "0x6AD7a5c473cC2cfa0fFE653BE9e045Ec1FE2BE42",
+    DogToken: "0xB7855bb9652E038525459ECCd22D4D90EcE6935A",
+  },
+};

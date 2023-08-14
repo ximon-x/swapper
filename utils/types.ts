@@ -13,6 +13,14 @@ export type ChainInfo = {
   };
 };
 
+export type Contracts = {
+  [key: string]: {
+    SwapperToken: Address;
+    CatToken: Address;
+    DogToken: Address;
+  };
+};
+
 export type CreateOrderParams = {
   offer: CreateInputItem[];
   consideration: ConsiderationInputItem[];
