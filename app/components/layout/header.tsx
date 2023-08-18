@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaFaucet } from "react-icons/fa";
 import { PiHandCoins } from "react-icons/pi";
 import { IoMdSwap } from "react-icons/io";
-import Image from "next/image";
-import swapperIcon from "@/public/icons/swapper.svg";
+import SwapperLogo from "../ui/swapperLogo";
 
 function Header() {
   const router = useRouter();
@@ -86,12 +85,7 @@ function Header() {
         </div>
       </div>
       <div className="flex-1">
-        <Image
-          src="/icons/swapper.svg"
-          alt="Swapper"
-          width={120}
-          height={120}
-        />
+        <SwapperLogo />
       </div>
       <div className="flex-none">
         <ConnectButton />

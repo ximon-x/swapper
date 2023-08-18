@@ -15,7 +15,7 @@ function Main() {
       <div className="hero my-10 bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <Image
-            src="/assets/images/cat.jpg"
+            src="/images/cat.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
             width={500}
             height={500}
@@ -45,7 +45,7 @@ function Main() {
       <div className="hero  bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            src="/assets/images/dog.jpg"
+            src="/images/dog.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
             width={500}
             height={500}
