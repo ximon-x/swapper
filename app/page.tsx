@@ -6,7 +6,7 @@ import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import WagmiProvider from "./providers/wagmi";
+import WagmiProvider from "./components/contexts/wagmi";
 
 function App() {
   const { isConnected } = useAccount();

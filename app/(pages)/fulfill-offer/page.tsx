@@ -1,6 +1,6 @@
 import Header from "@/app/components/layout/header";
 import Footer from "@/app/components/layout/footer";
-import WagmiProvider from "@/app/providers/wagmi";
+import WagmiProvider from "@/app/components/contexts/wagmi";
 
 function App() {
   return (

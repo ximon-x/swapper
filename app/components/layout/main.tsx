@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
-import Mint from "../ui/mint";
+import Mint from "../actions/mint";
 
 function Main() {
   useEffect(() => {
@@ -15,7 +15,7 @@ function Main() {
       <div className="hero my-10 bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <Image
-            src="/assets/cat.jpg"
+            src="/assets/images/cat.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
             width={500}
             height={500}
@@ -45,7 +45,7 @@ function Main() {
       <div className="hero  bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            src="/assets/dog.jpg"
+            src="/assets/images/dog.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
             width={500}
             height={500}
