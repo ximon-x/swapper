@@ -11,7 +11,7 @@ function App() {
   );
 }
 
-function Faucet() {
+function Swaps() {
   return (
     <WagmiProvider>
       <App />
@@ -19,4 +19,4 @@ function Faucet() {
   );
 }
 
-export default Faucet;
+export default Swaps;

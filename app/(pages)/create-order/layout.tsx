@@ -1,12 +1,12 @@
-import "../../globals.css";
+import "@/app/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Make a Swap",
-  description: "NFT Swapper developed by Simon Samuel",
+  title: "Swaps",
+  description: "View your open and closed Swaps",
 };
 
 export default function RootLayout({

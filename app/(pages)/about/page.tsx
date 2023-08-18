@@ -1,9 +1,21 @@
-function About() {
+import Header from "@/app/components/layout/header";
+import Footer from "@/app/components/layout/footer";
+import WagmiProvider from "@/app/providers/wagmi";
+
+function App() {
   return (
     <div>
-      <h1>About</h1>
-      <p>NFT Swapper developed by Simon Samuel</p>
+      <Header />
+      <Footer />
     </div>
+  );
+}
+
+function About() {
+  return (
+    <WagmiProvider>
+      <App />
+    </WagmiProvider>
   );
 }
 

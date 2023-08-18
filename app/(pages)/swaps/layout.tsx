@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "NFT Swapper developed by Simon Samuel",
+  title: "Swaps",
+  description: "View your open and closed Swaps",
 };
 
 export default function RootLayout({
