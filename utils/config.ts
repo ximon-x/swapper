@@ -1,3 +1,4 @@
+import { MongoClient, ServerApiVersion } from "mongodb";
 import { IEnv, initEnv } from "./env";
 import { CHAINS } from "./constants";
 import { ethers } from "ethers";
@@ -17,10 +18,23 @@ function getProvider(apiKey: string) {
   return provider;
 }
 
+function getDbClient(mongodbUri: string) {
+  const client = new MongoClient(mongodbUri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
+
+  return client;
+}
+
 const config = {
   currentChain,
   getEnv,
   getProvider,
+  getDbClient,
 };
 
 export default config;
