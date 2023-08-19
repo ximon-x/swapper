@@ -1,6 +1,20 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { useAccount } from "wagmi";
 
 function FaucetCard() {
+  const { address } = useAccount();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const claimCoins = async () => {
+    setIsLoading(true);
+    const response = await fetch;
+
+    setIsLoading(false);
+  };
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -18,7 +32,13 @@ function FaucetCard() {
           hitting this button
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Get Tokens</button>
+          <button
+            disabled={isLoading}
+            onClick={claimCoins}
+            className="btn btn-primary"
+          >
+            Get Tokens
+          </button>
         </div>
       </div>
     </div>

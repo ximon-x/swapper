@@ -1,21 +1,10 @@
-import Header from "@/app/components/layout/header";
-import Footer from "@/app/components/layout/footer";
-import WagmiProvider from "@/app/components/contexts/wagmi";
-
-function App() {
-  return (
-    <div>
-      <Header />
-      <Footer />
-    </div>
-  );
-}
-
 function Swaps() {
   return (
-    <WagmiProvider>
-      <App />
-    </WagmiProvider>
+    <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title">My Swaps</h2>
+      </div>
+    </div>
   );
 }
 

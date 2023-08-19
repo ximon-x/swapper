@@ -1,22 +1,11 @@
-import Header from "@/app/components/layout/header";
-import Footer from "@/app/components/layout/footer";
-import WagmiProvider from "@/app/components/contexts/wagmi";
-
-function App() {
+function FulfillSwap() {
   return (
-    <div>
-      <Header />
-      <Footer />
+    <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title">Fulfill Swap</h2>
+      </div>
     </div>
   );
 }
 
-function Swaps() {
-  return (
-    <WagmiProvider>
-      <App />
-    </WagmiProvider>
-  );
-}
-
-export default Swaps;
+export default FulfillSwap;

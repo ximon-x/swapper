@@ -1,22 +1,20 @@
 "use client";
 
-import "@rainbow-me/rainbowkit/styles.css";
-import Main from "./components/layout/main";
-import Header from "./components/layout/header";
-import Footer from "./components/layout/footer";
-import { useAccount } from "wagmi";
+import Header from "@/app/components/layout/header";
+import Footer from "@/app/components/layout/footer";
+import WagmiProvider from "@/app/components/provider/wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import WagmiProvider from "./components/provider/wagmi";
+import { useAccount } from "wagmi";
 
-function App() {
+function App({ children }: { children: React.ReactNode }) {
   const { isConnected } = useAccount();
 
   return (
     <>
       {isConnected ? (
-        <div>
+        <div className="flex flex-col min-h-screen min-w-full items-center justify-between">
           <Header />
-          <Main />
+          {children}
           <Footer />
         </div>
       ) : (
@@ -39,11 +37,12 @@ function App() {
   );
 }
 
-function Home() {
+function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider>
-      <App />
+      <App>{children}</App>
     </WagmiProvider>
   );
 }
-export default Home;
+
+export default AppLayout;

@@ -1,15 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect } from "react";
-import { themeChange } from "theme-change";
-import Mint from "../actions/mint";
+import Mint from "../ui/mint";
 
 function Main() {
-  useEffect(() => {
-    themeChange(false);
-  }, []);
-
   return (
     <div>
       <div className="hero my-10 bg-base-200">
