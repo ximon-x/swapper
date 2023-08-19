@@ -3,9 +3,9 @@ import { Address } from "@/utils/types";
 import { ethers } from "ethers";
 
 const env = config.getEnv();
-const { PRIVATE_KEY, API_KEY } = env;
+const { PRIVATE_KEY, ALCHEMY_KEY } = env;
 
-const provider = config.getProvider(API_KEY!);
+const provider = config.getProvider(ALCHEMY_KEY!);
 const signer = new ethers.Wallet(PRIVATE_KEY!, provider);
 
 export async function sendToken(
