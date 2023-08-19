@@ -4,7 +4,7 @@ import {
   OrderWithCounter,
 } from "@opensea/seaport-js/lib/types";
 
-export type Address = string;
+export type Address = `0x${string}`;
 
 export type ChainInfo = {
   [key: string]: {

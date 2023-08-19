@@ -1,5 +1,9 @@
 import { ChainInfo, Contracts } from "./types";
 
+import swapperTokenData from "../artifacts/contracts/Tokens.sol/SwapperToken.json";
+import catTokenData from "../artifacts/contracts/Tokens.sol/CatToken.json";
+import dogTokenData from "../artifacts/contracts/Tokens.sol/DogToken.json";
+
 export const CHAINS: ChainInfo = {
   mainnet: {
     name: "mainnet",
@@ -38,4 +42,18 @@ export const CONTRACTS: Contracts = {
     CatToken: "0x6AD7a5c473cC2cfa0fFE653BE9e045Ec1FE2BE42",
     DogToken: "0xB7855bb9652E038525459ECCd22D4D90EcE6935A",
   },
+};
+
+export const ABIS = {
+  SwapperToken: swapperTokenData.abi,
+  CatToken: catTokenData.abi,
+  DogToken: dogTokenData.abi,
+};
+
+export const ASSETS_URIS = {
+  SwapperToken: "",
+  CatToken:
+    "https://ipfs.io/ipfs/QmbjMQCK99nVMnFvNuNwg1UR92QYc2oHtAVKHK89K1o4iz",
+  DogToken:
+    "https://ipfs.io/ipfs/QmZW1VBnsUQrUjkU3bRoxotRXqByxcyg2AAcy2N2pHRxgc",
 };

@@ -2,7 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import swapperConfigs from "./utils/config";
 
-const { RPC_URL, PRIVATE_KEY, API_KEY } = swapperConfigs.getEnv();
+const { RPC_URL, PRIVATE_KEY, ETHERSCAN_KEY } = swapperConfigs.getEnv();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
@@ -14,7 +14,7 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: API_KEY,
+    apiKey: ETHERSCAN_KEY,
   },
 };
 

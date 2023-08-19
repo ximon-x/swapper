@@ -2,19 +2,21 @@ import dotenv from "dotenv";
 import { NotFoundError } from "./errors";
 
 export interface IEnv {
-  API_KEY: string | undefined;
+  ALCHEMY_KEY: string | undefined;
+  ETHERSCAN_KEY: string | undefined;
   RPC_URL: string | undefined;
   PRIVATE_KEY: string | undefined;
 }
 
 export function initEnv(): IEnv {
-  dotenv.config();
+  dotenv.config({ path: ".env.local" });
 
   let _env: IEnv | undefined = undefined;
 
   _env = {
-    API_KEY: process.env.ETHERSCAN_API_KEY,
     RPC_URL: process.env.ALCHEMY_RPC_URL,
+    ALCHEMY_KEY: process.env.ALCHEMY_API_KEY,
+    ETHERSCAN_KEY: process.env.ETHERSCAN_API_KEY,
     PRIVATE_KEY: process.env.METAMASK_PRIVATE_KEY,
   };
 
