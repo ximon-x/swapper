@@ -19,10 +19,12 @@ function NftCards() {
     <>
       {ownedNfts.map((nft: any) => (
         <NftCard
-          key={`${nft.contract.address}-${nft.tokenId}`}
           tokenId={nft.tokenId}
           image={nft.tokenUri.raw}
           name={nft.contract.name}
+          id={`${nft.contract.address}-${nft.tokenId}`}
+          key={`${nft.contract.address}-${nft.tokenId}`}
+          contractAddress={nft.contract.address}
         />
       ))}
     </>
@@ -33,7 +35,11 @@ function NftCards() {
   return (
     <div className="card bg-base-100 shadow-xl">
       <div className="card-body flex-row">
-        {isLoading ? <div>Loading...</div> : nfts}
+        {isLoading ? (
+          <span className="loading loading-spinner text-primary"></span>
+        ) : (
+          nfts
+        )}
       </div>
     </div>
   );

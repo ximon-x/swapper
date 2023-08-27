@@ -37,7 +37,8 @@
     "theme-change": "^2.5.0",
     "typescript": ">=4.5.0",
     "viem": "^1.6.0",
-    "wagmi": "^1.3.10"
+    "wagmi": "^1.3.10",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
