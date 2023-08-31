@@ -5,9 +5,12 @@ import NftCards from "../nft/nftCards";
 
 import { useState } from "react";
 import { useOfferStore } from "../../hooks/useOfferStore";
+import CreateConsiderationCard from "../nft/considerationCard";
+import { useConsiderationStore } from "../../hooks/useConsiderationStore";
 
 function CreateSwapCard() {
   const offers = useOfferStore((state) => state.offers);
+  const considerations = useConsiderationStore((state) => state.consideration);
   const [mode, setMode] = useState(0);
 
   const handleMode = (index: number) => {
@@ -58,7 +61,8 @@ function CreateSwapCard() {
           <h1 className="text-3xl m-4 ">What are your Considerations?</h1>
         </div>
         <div className="collapse-content">
-          <h2 className="text-2xl m-4">Considerations</h2>
+          <CreateConsiderationCard />
+
           <div className="flex justify-end p-8">
             <button
               className="btn btn-secondary mx-4"
