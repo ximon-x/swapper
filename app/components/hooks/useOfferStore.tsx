@@ -5,6 +5,7 @@ interface IOfferState {
   offers: Map<string, CreateInputItem>;
   add: (key: string, value: CreateInputItem) => void;
   remove: (key: string) => void;
+  clear: () => void;
 }
 
 export const useOfferStore = create<IOfferState>()((set) => ({
@@ -22,6 +23,14 @@ export const useOfferStore = create<IOfferState>()((set) => ({
     set((state) => {
       const offers = state.offers;
       offers.delete(key);
+      return { offers };
+    });
+  },
+
+  clear: () => {
+    set((state) => {
+      const offers = state.offers;
+      offers.clear();
       return { offers };
     });
   },

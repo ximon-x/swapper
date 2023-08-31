@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import NftCards from "../nft/nftCards";
-
 import { useState } from "react";
-import { useOfferStore } from "../../hooks/useOfferStore";
 import CreateConsiderationCard from "../nft/considerationCard";
+import ReviewCard from "../nft/reviewCard";
+import NftCards from "../nft/nftCards";
+import { useOfferStore } from "../../hooks/useOfferStore";
 import { useConsiderationStore } from "../../hooks/useConsiderationStore";
 
 function CreateSwapCard() {
-  const offers = useOfferStore((state) => state.offers);
-  const considerations = useConsiderationStore((state) => state.consideration);
+  const clearOffer = useOfferStore((state) => state.clear);
+  const clearConsideration = useConsiderationStore((state) => state.clear);
+
   const [mode, setMode] = useState(0);
 
   const handleMode = (index: number) => {
@@ -21,9 +22,7 @@ function CreateSwapCard() {
     setMode(index);
   };
 
-  const handleSubmit = () => {
-    console.log("Submitted");
-  };
+  const handleSubmit = () => {};
 
   return (
     <div className="w-full p-4 m-4">
@@ -91,12 +90,17 @@ function CreateSwapCard() {
           <h1 className="text-3xl m-4 ">Review and Create Swap</h1>
         </div>
         <div className="collapse-content">
+          <ReviewCard />
           <div className="flex justify-end p-8">
             <button
               className="btn btn-secondary mx-4"
-              onClick={() => setAccordian(1)}
+              onClick={() => {
+                clearOffer();
+                clearConsideration();
+                setAccordian(1);
+              }}
             >
-              Back
+              Cancel
             </button>
             <button className="btn btn-primary mx-4" onClick={handleSubmit}>
               Submit

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useConsiderationStore } from "../../hooks/useConsiderationStore";
 import { ConsiderationInputItem } from "@opensea/seaport-js/lib/types";
 import { ItemType } from "@opensea/seaport-js/lib/constants";
+import { CONTRACTS } from "@/utils/constants";
 
 function CreateConsiderationCard() {
   const addConsideration = useConsiderationStore((state) => state.add);
@@ -18,10 +19,10 @@ function CreateConsiderationCard() {
   const handleFtSubmit = () => {
     if (!ftContractAddress || !amount) return;
 
-    const key = `${ftContractAddress}`;
+    const key = `${CONTRACTS.sepolia.SwapperToken}`;
 
     const consideration: ConsiderationInputItem = {
-      token: ftContractAddress,
+      token: CONTRACTS.sepolia.SwapperToken,
       amount: amount.toString(),
     };
 

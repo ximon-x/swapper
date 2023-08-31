@@ -5,6 +5,7 @@ interface IConsiderationState {
   consideration: Map<string, ConsiderationInputItem>;
   add: (key: string, value: ConsiderationInputItem) => void;
   remove: (key: string) => void;
+  clear: () => void;
 }
 
 export const useConsiderationStore = create<IConsiderationState>()((set) => ({
@@ -22,6 +23,14 @@ export const useConsiderationStore = create<IConsiderationState>()((set) => ({
     set((state) => {
       const consideration = state.consideration;
       consideration.delete(key);
+      return { consideration };
+    });
+  },
+
+  clear: () => {
+    set((state) => {
+      const consideration = state.consideration;
+      consideration.clear();
       return { consideration };
     });
   },

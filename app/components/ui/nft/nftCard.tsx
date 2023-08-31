@@ -17,6 +17,7 @@ function NftCard({ id, name, image, tokenId, contractAddress }: NftCardProps) {
   const removeOffer = useOfferStore((state) => state.remove);
 
   const [selected, setSelected] = useState(false);
+
   const toggleSelect = () => {
     const item: CreateInputItem = {
       itemType: ItemType.ERC721,
@@ -25,7 +26,7 @@ function NftCard({ id, name, image, tokenId, contractAddress }: NftCardProps) {
       amount: "1",
     };
 
-    selected ? addOffer(id, item) : removeOffer(id);
+    !selected ? addOffer(id, item) : removeOffer(id);
     setSelected(!selected);
   };
 
