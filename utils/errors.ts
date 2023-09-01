@@ -35,31 +35,24 @@ export function isErrorType(s: string): s is ErrorType {
 }
 
 // Errors related to swapping tokens.
-export interface SwapStatus<T, U> {
-  offer: T;
-  consideration: U;
+export interface SwapStatus {
+  success: boolean;
 }
 
-export class SwapSuccess<T, U> implements SwapStatus<T, U> {
-  offer: T;
-  consideration: U;
+export class SwapSuccess implements SwapStatus {
   success: boolean;
 
-  public constructor(offer: T, consideration: U) {
-    this.offer = offer;
-    this.consideration = consideration;
+  public constructor() {
     this.success = true;
   }
 }
 
-export class SwapFailure<T, U> implements SwapStatus<T, U> {
-  offer: T;
-  consideration: U;
+export class SwapFailure implements SwapStatus {
+  success: boolean;
   error: ISwapperError;
 
-  public constructor(offer: T, consideration: U, error: ISwapperError) {
-    this.offer = offer;
-    this.consideration = consideration;
+  public constructor(error: ISwapperError) {
+    this.success = false;
     this.error = error;
   }
 }

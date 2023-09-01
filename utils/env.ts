@@ -6,6 +6,7 @@ export interface IEnv {
   ETHERSCAN_KEY: string | undefined;
   RPC_URL: string | undefined;
   PRIVATE_KEY: string | undefined;
+  MONGODB_URI: string | undefined;
 }
 
 export function initEnv(): IEnv {
@@ -18,6 +19,7 @@ export function initEnv(): IEnv {
     ALCHEMY_KEY: process.env.ALCHEMY_API_KEY,
     ETHERSCAN_KEY: process.env.ETHERSCAN_API_KEY,
     PRIVATE_KEY: process.env.METAMASK_PRIVATE_KEY,
+    MONGODB_URI: process.env.MONGODB_URI,
   };
 
   for (const [key, value] of Object.entries(_env)) {

@@ -1,4 +1,4 @@
-import { sendToken } from "@/app/services/swap/transfer";
+import { sendToken } from "@/app/services/swap";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
