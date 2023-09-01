@@ -53,8 +53,7 @@ export async function fulfillOrder(
     const transaction = await executeAllFulfillActions();
     const receipt = await transaction.wait(6);
 
-    // TODO: Store the transaction hash in a database.
-    console.log(`Transaction receipt: ${JSON.stringify(receipt, null, 2)}`);
+    console.log(`Transaction Hash: ${receipt.transactionHash}`);
 
     return new SwapSuccess();
   } catch (error) {
