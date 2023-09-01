@@ -7,8 +7,17 @@ import ReviewCard from "../nft/reviewCard";
 import NftCards from "../nft/nftCards";
 import { useOfferStore } from "../../hooks/useOfferStore";
 import { useConsiderationStore } from "../../hooks/useConsiderationStore";
+import { CreateOrderParams } from "@/utils/types";
+import { useAccount } from "wagmi";
+import axios from "axios";
+import { createOrder, initSeaport } from "@/app/services/seaport";
 
 function CreateSwapCard() {
+  const { address } = useAccount();
+
+  const offers = useOfferStore((state) => state.offers);
+  const considerations = useConsiderationStore((state) => state.consideration);
+
   const clearOffer = useOfferStore((state) => state.clear);
   const clearConsideration = useConsiderationStore((state) => state.clear);
 
@@ -22,7 +31,36 @@ function CreateSwapCard() {
     setMode(index);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    try {
+      const offer = Array.from(offers.values());
+      const consideration = Array.from(considerations.values());
+
+      const params: CreateOrderParams = {
+        offer,
+        consideration,
+        offerer: address!,
+      };
+
+      // @ts-ignore
+      const seaport = initSeaport(window.ethereum!);
+
+      const order = await createOrder(seaport, params);
+
+      axios
+        .post("/createOffer", order)
+        .then((res) => {
+          window.alert(
+            "Offer Created. OrderID: " + res.data.receipt.insertedId
+          );
+        })
+        .catch((err) => {
+          console.log("error in request", err);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="w-full p-4 m-4">

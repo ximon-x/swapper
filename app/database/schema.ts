@@ -1,10 +1,9 @@
 import { Address } from "@/utils/types";
 import { OrderWithCounter } from "@opensea/seaport-js/lib/types";
 
-export type Order = {
-  id: string;
+export type OrderSchema = {
   offerer: Address;
-  fullfiller: Address | null;
+  fulfiller: Address | null;
   order: OrderWithCounter;
   fulfilled: boolean;
   cancelled: boolean;
