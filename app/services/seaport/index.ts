@@ -56,9 +56,6 @@ export async function fulfillOrder(
     // TODO: Store the transaction hash in a database.
     console.log(`Transaction receipt: ${JSON.stringify(receipt, null, 2)}`);
 
-    // TODO: Add a link to the transaction on etherscan.
-    alert(`Transaction Hash: ${receipt.transactionHash}`);
-
     return new SwapSuccess();
   } catch (error) {
     return new SwapFailure(error as ISwapperError);
